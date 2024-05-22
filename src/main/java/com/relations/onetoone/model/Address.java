@@ -1,13 +1,9 @@
 package com.relations.onetoone.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
@@ -22,4 +18,18 @@ public class Address {
 
     private String street;
     private String city;
+
+    @OneToOne(mappedBy = "address", cascade = CascadeType.MERGE)
+    @JsonBackReference // Evita la serialización recursiva de Persona
+    private Persona persona;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "idAddress=" + idAddress +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", persona=" + persona.getIdPersona() +
+                '}';
+    }
 }

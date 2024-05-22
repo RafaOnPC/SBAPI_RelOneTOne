@@ -1,6 +1,7 @@
 package com.relations.onetoone.controller;
 
 import com.relations.onetoone.model.Address;
+import com.relations.onetoone.model.Persona;
 import com.relations.onetoone.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

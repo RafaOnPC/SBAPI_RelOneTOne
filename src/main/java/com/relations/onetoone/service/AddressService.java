@@ -1,6 +1,7 @@
 package com.relations.onetoone.service;
 
 import com.relations.onetoone.model.Address;
+import com.relations.onetoone.model.Persona;
 
 import java.util.List;
 import java.util.Optional;
